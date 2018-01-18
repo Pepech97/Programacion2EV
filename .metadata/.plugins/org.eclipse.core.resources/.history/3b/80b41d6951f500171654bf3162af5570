@@ -1,0 +1,69 @@
+
+public class TragaBolas {
+		private String color;
+		private int bolasComidas=0;
+		private int maxBolas;
+		private int error;
+		
+		public void crearTragaBolas(String color, int maxBolas) {
+			
+			if(this.color.equals("verde") || this.color.equals("azul") || this.color.equals("rojo") || this.color.equals("amarillo")){
+				this.color = color;
+				System.out.println("hola");
+			}
+			else{
+				this.error=1;
+				color="";
+			}
+			if(error==0){
+				if(maxBolas>0){
+					this.maxBolas = maxBolas;
+				}
+				else{
+					this.maxBolas=10;
+				}
+			}
+		}
+		public String getColor() {
+			return color;
+		}
+		public int getBolasComidas() {
+			return bolasComidas;
+		}
+		public int getMaxBolas() {
+			return maxBolas;
+		}
+		public int error(){
+			return error;
+		}
+		public void darComer(){ // Sumador de bolas comidas hasta el límite especificado, 10
+			if ( bolasComidas < maxBolas ){
+				bolasComidas++;
+				System.out.println("He comido una bola");
+			}
+			else {
+				System.out.println("Estoy lleno");
+			}
+		}
+		public void dormir(String respuesta){
+			System.out.println("Bolas comidas"+bolasComidas);
+			if(bolasComidas==maxBolas){
+				if(respuesta=="si"){
+					System.out.println("Tripa llena. ZZZZZZ");
+					bolasComidas=bolasComidas/2;
+				}
+				else{
+					System.out.println("No quiero dormir");
+				}
+			}
+		}
+		public void estado(String respuesta){
+			System.out.println("Bolas comidas"+bolasComidas);
+			if (bolasComidas>0){
+				System.out.println("¿Quieres Trotar?");
+			}
+			if (respuesta.equals("si")){
+				bolasComidas--;
+			}
+		}
+}

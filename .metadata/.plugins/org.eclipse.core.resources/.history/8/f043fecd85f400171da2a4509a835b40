@@ -1,0 +1,45 @@
+
+public class TragaBolas {
+		private String color;
+		private int bolasComidas;
+		private int maxBolas;
+		private int error;
+		
+		public TragaBolas(String color, int bolasComidas, int maxBolas) {
+			super();
+			this.color = color;
+			this.bolasComidas = bolasComidas;
+			this.maxBolas = maxBolas;
+		}
+		public String getColor() {
+			return color;
+		}
+		public void setColor(String color) {
+			this.color = color;
+			if(this.color.equals("verde") || this.color.equals("azul") || this.color.equals("rojo") || this.color.equals("amarillo")){
+				
+			}
+			else{
+				this.error=1;
+				System.out.println("ERROR");
+			}
+		}
+		public int getBolasComidas() {
+			return bolasComidas;
+		}
+		public void setBolasComidas(int bolasComidas) {
+			this.bolasComidas = bolasComidas;
+			if (this.error==0){
+				if(this.bolasComidas==this.maxBolas){
+					
+				}
+			}
+		}
+		public int getMaxBolas() {
+			return maxBolas;
+		}
+		public void setMaxBolas(int maxBolas) {
+			this.maxBolas = maxBolas;
+		}
+		
+}
