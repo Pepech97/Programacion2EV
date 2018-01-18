@@ -90,9 +90,8 @@ public class Cuentacorriente {
 	public static String numTotalCuentas(){
 		return "El numero total de cuentas es "+numTotalCuentas; 
 	}
-	public void FusionCuentas( Cuentacorriente uno, Cuentacorriente dos){
-		this.saldo = uno.getSaldo() + dos.getSaldo();
-		this.cliente = 
+	public static void FusionCuentas( Cuentacorriente uno, Cuentacorriente dos){
+		 
 	}
 	/**
 	 * @param importe the importe a ingresar
