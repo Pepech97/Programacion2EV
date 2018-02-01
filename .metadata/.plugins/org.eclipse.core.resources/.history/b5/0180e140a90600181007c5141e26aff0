@@ -1,0 +1,19 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class PruebasDeCodigoTest {
+
+	@Test
+	public void testMetodo() {
+		PruebasDeCodigo a = new PruebasDeCodigo();
+		int resul = a.metodo(true,false,true);
+		assertEquals(2,resul);
+	}
+	@Test
+	public void testMetodo2() {
+		PruebasDeCodigo a = new PruebasDeCodigo();
+		int resul = a.metodo(true,true,true);
+		assertEquals(1,resul);
+	}
+}

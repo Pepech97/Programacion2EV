@@ -1,0 +1,12 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class PruebasDeCodigoTest2 {
+
+	@Test
+	public void testMetodo() {
+		fail("Not yet implemented");
+	}
+
+}

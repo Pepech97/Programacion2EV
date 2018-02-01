@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="PruebasDeCodigoTest" project="PruebasJUnit" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="PruebasDeCodigoTest" time="0.0">
+    <testcase name="testMetodo2" classname="PruebasDeCodigoTest" time="0.0"/>
+    <testcase name="testMetodo3" classname="PruebasDeCodigoTest" time="0.0"/>
+    <testcase name="testMetodo4" classname="PruebasDeCodigoTest" time="0.0"/>
+    <testcase name="testMetodo5" classname="PruebasDeCodigoTest" time="0.0"/>
+    <testcase name="testMetodo" classname="PruebasDeCodigoTest" time="0.0"/>
+  </testsuite>
+</testrun>

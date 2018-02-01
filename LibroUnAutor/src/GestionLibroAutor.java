@@ -93,9 +93,7 @@ public class GestionLibroAutor {
 				break;
 			}
 		} while (fin == false);
-
 	}
-
 	static public void crearLibro(Libro libros[], Autor autores[], int y) {
 		String titulo = "", nombre = "", email = "", genero = "";
 		Integer cantidad;
@@ -122,7 +120,6 @@ public class GestionLibroAutor {
 			libros[y] = libro;
 			autores[y] = autorLibro;
 		}
-
 	}
 
 	static public Integer comprobarAutor(String nombre, Autor autores[]) {
