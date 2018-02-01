@@ -15,7 +15,7 @@ public class Leer {
 	/**
 	 * Método para imprimir mensaje que se repetía
 	 */
-	static public void mensaje(String mensage){
+	static public void mostrarEnPantalla(String mensage){
 		System.out.println(mensage);
 	}
 	
@@ -30,11 +30,11 @@ public class Leer {
 		while (error) {
 			try {
 				dato="";
-				mensaje(texto);
+				mostrarEnPantalla(texto);
 				dato = dataIn.readLine();
 				error=false;
 			} catch (IOException e) {
-				mensaje("Vuelve a introducir el dato, por favor: ");
+				mostrarEnPantalla("Vuelve a introducir el dato, por favor: ");
 				error = true;
 			}
 		}
@@ -52,15 +52,15 @@ public class Leer {
 		boolean error = true;
 		while (error) {
 			try {
-				mensaje(texto);
+				mostrarEnPantalla(texto);
 				dato = Integer.parseInt(dataIn.readLine());
 				error=false;
 			} catch (IOException e) {
-				mensaje("Vuelve a introducir el dato, por favor");
+				mostrarEnPantalla("Vuelve a introducir el dato, por favor");
 				error = true;
 			} catch(NumberFormatException e){
-				mensaje("El dato introducido no es entero");
-				mensaje("Vuelve a introducir el dato, por favor: ");
+				mostrarEnPantalla("El dato introducido no es entero");
+				mostrarEnPantalla("Vuelve a introducir el dato, por favor: ");
 				error=true;
 			}
 		}
@@ -72,21 +72,21 @@ public class Leer {
 	 * @param texto
 	 * @return
 	 */
-	static public double pedirDecimal(final String texto) {
+	static public double pedirDouble(final String texto) {
 		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
 		double dato=0;
 		boolean error = true;
 		while (error) {
 			try {
-				mensaje(texto);
+				mostrarEnPantalla(texto);
 				dato = Double.parseDouble(dataIn.readLine());
 				error=false;
 			} catch (IOException e) {
-				mensaje("Vuelve a introducir el dato, por favor: ");
+				mostrarEnPantalla("Vuelve a introducir el dato, por favor: ");
 				error = true;
 			} catch(NumberFormatException e){
-				mensaje("El dato introducido no es decimal");
-				mensaje("Vuelve a introducir el dato, por favor: ");
+				mostrarEnPantalla("El dato introducido no es decimal");
+				mostrarEnPantalla("Vuelve a introducir el dato, por favor: ");
 				error=true;
 			}
 		}
@@ -103,15 +103,15 @@ public class Leer {
 		boolean error = true;
 		while (error) {
 			try {
-				mensaje(texto);
+				mostrarEnPantalla(texto);
 				dato = Float.parseFloat(dataIn.readLine());
 				error=false;
 			} catch (IOException e) {
-				mensaje("Vuelve a introducir el dato, por favor: ");
+				mostrarEnPantalla("Vuelve a introducir el dato, por favor: ");
 				error = true;
 			} catch(NumberFormatException e){
-				mensaje("El dato introducido no es decimal");
-				mensaje("Vuelve a introducir el dato, por favor: ");
+				mostrarEnPantalla("El dato introducido no es decimal");
+				mostrarEnPantalla("Vuelve a introducir el dato, por favor: ");
 				error=true;
 			}
 		}

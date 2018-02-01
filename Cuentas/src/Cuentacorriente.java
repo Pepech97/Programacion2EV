@@ -19,10 +19,10 @@ public class Cuentacorriente {
 	 */
 	public Cuentacorriente(Double saldo, String cliente) {
 		String num="0000"+siguiente;
-		this.numero = num.substring(num.length()-3);
+		numero = num.substring(num.length()-3);
 		this.saldo = saldo;
 		this.cliente = cliente;
-		this.siguiente ++;
+		siguiente ++;
 	}
 
 	/**
@@ -75,13 +75,6 @@ public class Cuentacorriente {
 	}
 
 	/**
-	 * @param siguiente the siguiente to set
-	 */
-	public static void setSiguiente(Integer siguiente) {
-		Cuentacorriente.siguiente = siguiente;
-	}
-
-	/**
 	 * @param importe the importe a ingresar
 	 */
 	public void ingresarEfectivo(Double importe) {
@@ -101,10 +94,10 @@ public class Cuentacorriente {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
-/*	@Override
+	@Override
 	public String toString() {
 		return "Cuentacorriente [numero=" + numero + ", saldo=" + saldo + ", cliente=" + cliente + "]";
-	}*/
+	}
 	/**
 	 * @param siguiente the siguiente to set
 	 */

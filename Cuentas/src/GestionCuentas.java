@@ -17,32 +17,33 @@ public class GestionCuentas {
 		cuentas = new Cuentacorriente[10];
 		String cliente;
 		Double saldo;
-		Leer.mensaje(cuentas.toString());
+		Leer.mostrarEnPantalla(cuentas.toString());
 		for (int i=0; i<cuentas.length; i++){
-			Leer.mensaje(""+cuentas[i]);
+			Leer.mostrarEnPantalla(""+cuentas[i]);
 		//	Leer.mensaje(cuentas[i].visualiza());
 		//	Leer.mensaje(cuentas[i].toString());
 		}
 		for (int i=0; i<2; i++){
 			cliente=Leer.pedirCadena("Nombre del cliente ");
-			saldo=Leer.pedirDecimal("Saldo inicial ");
+			saldo=Leer.pedirDouble("Saldo inicial ");
 			cuentas[i]=new Cuentacorriente(saldo, cliente);
 		}
-		Leer.mensaje(cuentas.toString());
+		Leer.mostrarEnPantalla(cuentas.toString());
 		for (int i=0; i<cuentas.length; i++){
-			Leer.mensaje(""+cuentas[i]);
+			Leer.mostrarEnPantalla(""+cuentas[i]);
 			if (i<Cuentacorriente.getSiguiente()-1){
-				Leer.mensaje(cuentas[i].visualiza());
+				//Leer.mostrarEnPantalla(cuentas[i].visualiza());
+				System.out.println((cuentas[i]));
 			}
 		}
 		//Menu
 		int opcion;
 		do {
-			Leer.mensaje(" 1.- Crear cuenta");
-			Leer.mensaje(" 2.- Visualizar las cuentas");
-			Leer.mensaje(" 3.- Ingresar en una cuenta");
-			Leer.mensaje(" 4.- Sacar de una cuenta");
-			Leer.mensaje(" 0.- Fin");
+			Leer.mostrarEnPantalla(" 1.- Crear cuenta");
+			Leer.mostrarEnPantalla(" 2.- Visualizar las cuentas");
+			Leer.mostrarEnPantalla(" 3.- Ingresar en una cuenta");
+			Leer.mostrarEnPantalla(" 4.- Sacar de una cuenta");
+			Leer.mostrarEnPantalla(" 0.- Fin");
 
 			opcion=Leer.pedirEntero("Elija opción ");
 			Double importe= -1.0;
@@ -51,23 +52,23 @@ public class GestionCuentas {
 			switch(opcion){
 			case 1://Crear cuenta
 				if(Cuentacorriente.getSiguiente()==11){
-					Leer.mensaje("Límite de cuentas alcanzado");
+					Leer.mostrarEnPantalla("Límite de cuentas alcanzado");
 				}else{
 					cliente=Leer.pedirCadena("Nombre del cliente ");
-					saldo=Leer.pedirDecimal("Saldo inicial ");
+					saldo=Leer.pedirDouble("Saldo inicial ");
 					cuentas[Cuentacorriente.getSiguiente()-1]=new Cuentacorriente(saldo, cliente);					
 				}
 				break;
 			case 2://visualizar cuentas
 				for(int i=0; i<cuentas.length; i++){
 					if (cuentas[i]!=null){
-						Leer.mensaje(cuentas[i].visualiza());
+						Leer.mostrarEnPantalla(cuentas[i].visualiza());
 					}
 				}
 				break;
 			case 3://ingresar en cuenta
 				while (importe < 0){
-					importe=Leer.pedirDecimal("Teclee importe a ingresar (mayor que cero: ");
+					importe=Leer.pedirDouble("Teclee importe a ingresar (mayor que cero: ");
 				}
 				cuenta=Leer.pedirCadena("Código de cuenta en la que ingresar");
 				for(int i=0; i<Cuentacorriente.getSiguiente()-1; i++){
@@ -77,25 +78,25 @@ public class GestionCuentas {
 					}
 				}
 				if (!existe){
-					Leer.mensaje("Cuenta no existente "+cuenta);
+					Leer.mostrarEnPantalla("Cuenta no existente "+cuenta);
 				}
 				break;
 			case 4://sacar de cuenta
 				while (importe < 0){
-					importe=Leer.pedirDecimal("Teclee importe a retirar (mayor que cero: ");
+					importe=Leer.pedirDouble("Teclee importe a retirar (mayor que cero: ");
 				}
 				cuenta=Leer.pedirCadena("Código de cuenta en la que ingresar");
 				for(int i=0; i<Cuentacorriente.getSiguiente()-1; i++){
 					if( cuentas[i].getNumero().equals(cuenta)){
 						saldosuf=cuentas[i].retirarEfectivo(importe);
 						if(!saldosuf){
-							Leer.mensaje("No hay saldo suficiente");
+							Leer.mostrarEnPantalla("No hay saldo suficiente");
 						}
 						existe=true;
 					}
 				}
 				if (!existe){
-					Leer.mensaje("Cuenta no existente "+cuenta);
+					Leer.mostrarEnPantalla("Cuenta no existente "+cuenta);
 				}
 				break;
 			}
