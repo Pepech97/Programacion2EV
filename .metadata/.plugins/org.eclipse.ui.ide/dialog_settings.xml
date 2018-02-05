@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\usuario\Desktop\Git_Hub\Programacion2EV\Ejemplo1"/>
+		<item value="C:\Users\usuario\Desktop\Git_Hub\Programacion2EV\Ejemplo2"/>
+		<item value="C:\Users\usuario\Desktop\Git_Hub\Programacion2EV"/>
+		<item value="C:\Users\usuario\Desktop\ProyectoPaises"/>
+		<item value="C:\Users\usuario\Desktop\Git_Hub\Programacion2EV\Cuentas"/>
 		<item value="C:\Programacion2EV"/>
 		<item value="C:\Users\usuario\Desktop\Cuentas"/>
 		<item value="C:\Users\usuario\Desktop\Tema6ej3"/>
