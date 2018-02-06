@@ -1,17 +1,19 @@
 public class Principal {
 	public static void main(String[] args) {
+		String profesion="";
+		int numhuesos=0, numextremidades=0, numcrias=0;
 		Persona p[] = new Persona[3];
 		int pos;
 		for (pos = 0; pos < 3; pos++) {
-			p[pos] = new Persona();
+			p[pos] = new Persona(profesion, numhuesos, numextremidades, numcrias);
 		}
 
 		Mamifero ma[] = new Mamifero[2];
 		for (pos = 0; pos < 2; pos++) {
-			ma[pos] = new Mamifero();
+			ma[pos] = new Mamifero(numhuesos, numextremidades, numcrias);
 		}
 
-		Animal a = new Animal();
+		Animal a = new Animal(numcrias);
 		System.out
 				.print("\n\tINSERCIÓN DE LOS DATOS DE LAS DIFERENTES PERSONAS:");
 		for (pos = 0; pos < 3; pos++) {

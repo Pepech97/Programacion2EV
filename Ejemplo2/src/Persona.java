@@ -4,8 +4,8 @@ public class Persona extends Mamifero {
 
 	private String profesion;
 
-	public Persona(String profesion, ) {
-
+	public Persona(String profesion, int numhuesos, int numextremidades, int numcrias) {
+		super(numhuesos, numextremidades, numcrias);
 		System.out.print(" y persona");
 	}
 
