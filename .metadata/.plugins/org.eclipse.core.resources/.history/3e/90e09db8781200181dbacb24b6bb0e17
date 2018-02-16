@@ -1,0 +1,18 @@
+package ejercicio1t10;
+
+public class principalPila {
+	public static void main(String[] args) {
+		PILA pila1[]=new PILA[500];
+		String tipo[]={"revista","ficha","plato"};
+		rellenarV(pila1, tipo);
+		for (int i = 0; i < pila1.length; i++) {
+			System.out.println(pila1[i].getTipo());
+		}
+	}
+	public static PILA rellenarV(PILA[] pila1, String[] tipo) {
+		for (int i = 0; i < pila1.length; i++) {
+		pila1[i]=new PILA(tipo[(int)(Math.random()*3)]);
+		}
+		return null;
+	}
+}

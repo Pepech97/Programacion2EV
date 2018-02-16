@@ -1,0 +1,27 @@
+package ejercicio1t10;
+
+public class PILA {
+	private String nombre;
+
+	public PILA(String nombre) {
+		this.nombre = nombre;
+	}
+	public void POP(){
+		
+	}
+	public void ADD(){
+		
+	}
+	public void COPY(){
+	
+	}
+	public void INV(){
+		
+	}
+	public void vacia(){
+		
+	}
+	public void borrarTodo(){
+		
+	}
+}

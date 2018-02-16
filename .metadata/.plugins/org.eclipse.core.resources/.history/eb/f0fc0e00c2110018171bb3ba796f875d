@@ -1,0 +1,5 @@
+package ejercicio1t10;
+
+public class principalPila {
+	PILA v[]=new PILA [500];
+}

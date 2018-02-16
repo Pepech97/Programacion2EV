@@ -1,0 +1,14 @@
+package ejercicio1t10;
+
+public class principalPila {
+	PILA pila1[]=null;
+	String tipo[]={"revista","ficha","plato"};
+	int cuantos;
+	rellenarV(pila1, tipo, cuantos)
+	public static void rellenarV(PILA v[], String tipo[], int cuantos){
+		int i;
+		for (i = 0; i < v.length; i++) {
+			
+		}
+	}
+}

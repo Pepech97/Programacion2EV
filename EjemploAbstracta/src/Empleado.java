@@ -29,5 +29,5 @@ public class Empleado extends EmpleadoAbstracta{
 		Leer.mostrarEnPantalla("\n\t\tEDAD: " + getEdad());
 		return;
 	}
-	
+
 }
