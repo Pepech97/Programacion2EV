@@ -1,5 +1,7 @@
 package dojo22;
 
+import Leer;
+
 public class Alumno {
 	private Asignatura asignaturas[];
 	private Integer notas[];
@@ -54,7 +56,11 @@ public class Alumno {
 		this.edad=fechaNacimiento.difFechas(hoy)/365;
 	}
 	public void visualizarTodo(){
-		
+		Leer.mostrarEnPantalla("Almuno: "+nombre+"\nEdad: "+edad);
+		for (int i = 0; i < asignaturas.length; i++) {
+			Leer.mostrarEnPantalla("Asignatura: "+asignaturas[i].getNombre()+"  Nota: "+notas[i]);
+		}
+		Leer.mostrarEnPantalla(media()+"\n"+calificacion()+"\n");
 	}
 }
 

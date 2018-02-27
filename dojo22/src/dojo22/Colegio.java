@@ -1,5 +1,7 @@
 package dojo22;
 
+import Leer;
+
 public class Colegio {
 
 	public static void main(String[] args) {
@@ -7,7 +9,9 @@ public class Colegio {
 		Alumno alumnos[]=new Alumno[10];
 		crearAsignaturas(asignaturas);
 		crearAlumno(asignaturas,alumnos);
-		
+		for (int i = 0; i < alumnos.length; i++) {
+			alumnos[i].visualizarTodo();
+		}
 	}
 	public static void crearAsignaturas(Asignatura asignaturas[]){
 		String nomAsig[]={"Quimica","Matematicas","Biologia","Fisica","TIC","Filosofia","Programacion","Bases de datos","Lenguaje de marcas","Sistemas informaticos","Entornos de desarrollo","FOL","Ingles"};
@@ -22,7 +26,7 @@ public class Colegio {
 			Leer.mostrarEnPantalla("Alumno "+(k+1));
 			do {
 				numAsig=Leer.pedirEntero("¿Cuantas asignaturas quieres?");
-			} while (numAsig>10 || numAsig<=0);
+			} while (numAsig>10 || numAsig<=2);
 			Integer[] notas=new Integer[numAsig];
 			Asignatura asignarAsig[]=new Asignatura[numAsig];
 			for (int i = 0; i < numAsig; i++) {
@@ -42,9 +46,6 @@ public class Colegio {
 		}
 
 	}
-	public static void visualizarTodo(Alumno alumnos[]){
-		for (int i = 0; i < alumnos.length; i++) {
-			Leer.mostrarEnPantalla(alumnos[i]);
-		}
-	}
+
 }
+
