@@ -1,0 +1,45 @@
+
+public class GestionLibroAutor {
+
+	public static void main(String[] args) {
+		Libro libros[]=new Libro[10];
+		Autor autores[]=new Autor[10];
+		crearLibro(libros,autores);
+		for (int i = 0; i < libros.length; i++) {
+			libros[i].visualizarLibro();
+		}
+	}
+	public static void crearLibro(Libro libros[], Autor autores[]){
+		String titulo, email, nombre;
+		String genero;
+		Double precio;
+		int cantidadlibro;
+		boolean autorExiste=false;
+		int cuantosLibros=Leer.pedirEntero("¿Cuantos libros quieres crear?");
+		for (int i = 0; i < cuantosLibros; i++) {
+			titulo=Leer.pedirCadena("Titulo del libro: ");
+			for (int j = 0; j < libros.length-1; j++) {
+				if(libros[j].getTitulo().equals(titulo) && libros[j]!=null){
+					titulo=Leer.pedirCadena("Este libro ya esta en la lista introduzca otra vez el titulo del libro: ");
+				}
+			}
+			precio=Leer.pedirDouble("Precio del libro: ");
+			cantidadlibro=Leer.pedirEntero("Cantidad de libros: ");
+			nombre=Leer.pedirCadena("Nombre del autor: ");
+			for (int j = 0; j < autores.length; j++) {
+				if(autores[j].getNombre().equals(nombre)){
+					libros[Libro.getSiguiente()]=new Libro(titulo,autores[j],precio,cantidadlibro);
+					autorExiste=true;
+				}
+			}
+			if(autorExiste==false){
+				email=Leer.pedirCadena("Email: ");
+				do {
+					genero=Leer.pedirCadena("Genero: ");
+				} while (!genero.equals("m") && !genero.equals("f"));
+				autores[Autor.getSiguiente()]=new Autor(nombre,genero,email);
+			}
+		}
+	}
+
+}

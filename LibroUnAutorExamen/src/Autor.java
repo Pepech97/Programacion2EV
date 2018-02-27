@@ -3,10 +3,15 @@ public class Autor {
 	private String nombre;
 	private char genero;
 	private String email;
+	private static int siguiente=0;
 	public Autor(String nombre, char genero, String email) {
 		this.nombre = nombre;
 		this.genero = genero;
 		this.email = email;
+		siguiente++;
+	}
+	public static int getSiguiente() {
+		return siguiente;
 	}
 	public String getEmail() {
 		return email;

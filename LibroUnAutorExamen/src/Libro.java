@@ -4,18 +4,25 @@ public class Libro {
 	private Autor autor;
 	private Double precio;
 	private int cantidad=0;
+	private static int siguiente=0;
 	
 	public Libro(String titulo, Autor autor, Double precio) {
 		this.titulo = titulo;
 		this.autor = autor;
 		this.precio = precio;
+		
 	}
 	
+	public static int getSiguiente() {
+		return siguiente;
+	}
+
 	public Libro(String titulo, Autor autor, Double precio, int cantidad) {
 		this.titulo = titulo;
 		this.autor = autor;
 		this.precio = precio;
 		this.cantidad = cantidad;
+		siguiente++;
 	}
 	public Double getPrecio() {
 		return precio;
@@ -35,7 +42,8 @@ public class Libro {
 	public Autor getAutor() {
 		return autor;
 	}
-	public void visualizarLibro(){
-		Leer.mostrarEnPantalla("Libro [titulo = "+titulo+",\nAutor "+autor.visualizarAutor()+"\nprecio = "+precio+"\ncantidad = "+cantidad+"]");
+	public String visualizarLibro(){
+		String visualizar="Libro [titulo = "+titulo+",\nAutor [nombre = "+autor.getNombre()+" email = "+autor.getEmail()+" genero = "+autor.getGenero()+"]\n precio = "+precio+"\ncantidad = "+cantidad+"]";
+		return visualizar;
 	}
 }
