@@ -1,0 +1,14 @@
+package dojo22;
+
+public class Alumno {
+	private Asignatura asignaturas[];
+	private Double notas[];
+	private String nombre;
+	private Integer edad;
+	public Alumno( String nombre, Integer dia, Integer mes, Integer año) {
+		super();
+		this.asignaturas = asignaturas;
+		this.nombre = nombre;
+		
+	}
+}

@@ -1,0 +1,33 @@
+package dojo22;
+
+public class Alumno {
+	private Asignatura asignaturas[];
+	private Integer notas[];
+	private String nombre;
+	private Integer edad;
+	private Fecha fechaNacimiento;
+
+	public Alumno( String nombre, Integer dia, Integer mes, Integer anio) {
+
+		this.nombre = nombre;
+
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Fecha getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(Fecha fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	public void meterAsig(Asignatura asignaturas[]){
+		this.asignaturas=asignaturas;
+	}
+	public void meterNotas()
+
+}
+

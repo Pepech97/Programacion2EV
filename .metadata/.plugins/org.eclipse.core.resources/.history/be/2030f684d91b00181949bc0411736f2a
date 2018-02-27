@@ -1,0 +1,42 @@
+package dojo22;
+
+public class Colegio {
+
+	public static void main(String[] args) {
+		Asignatura asignaturas[]= new Asignatura[13];
+		Alumno alumnos[]=new Alumno[10];
+		crearAsignaturas(asignaturas);
+		crearAlumno(asignaturas,alumnos);
+
+	}
+	public static void crearAsignaturas(Asignatura asignaturas[]){
+		String nomAsig[]={"Quimica","Matematicas","Biologia","Fisica","TIC","Filosofia","Programacion","Bases de datos","Lenguaje de marcas","Sistemas informaticos","Entornos de desarrollo","FOL","Ingles"};
+		for (int i = 0; i < asignaturas.length; i++) {
+			asignaturas[i] = new Asignatura(nomAsig[i],(int)(Math.random() * (5 - 2) + 2),(int)(Math.random() * (3 - 1) + 1));
+		}
+	}
+	public static void crearAlumno(Asignatura asignaturas[],Alumno alumnos[]){
+		String nombres[]={"Luis","Christian","Pepe","Diego","Roberto","Rafa","Jesus","German","Raul","Eric"};
+		for (int k = 0; k < alumnos.length; k++) {
+			Leer.mostrarEnPantalla("Alumno "+k);
+			int numAsig=Leer.pedirEntero("¿Cuantas asignaturas quieres?");
+			Integer[] notas=new Integer[numAsig];
+			Asignatura asignarAsig[]=new Asignatura[numAsig];
+			for (int i = 0; i < numAsig; i++) {
+				int posicion=(int)(Math.random() * (14 - 0) + 0);
+				for (int j = 0; j < asignarAsig.length; j++) {
+					if(asignaturas[posicion].equals(asignarAsig[j])){
+						posicion=(int)(Math.random() * (14 - 0) + 0);
+						j=0;
+					}
+				}
+				asignarAsig[i]=asignaturas[posicion];
+				notas[i]=(int)(Math.random() * (11 - 0) + 0);
+			}
+			alumnos[k]=new Alumno(nombres[k],(int)(Math.random() * (29 - 1) + 1),(int)(Math.random() * (13 - 1) + 1),(int)(Math.random() * (2004 - 1990) + 1990));
+			alumnos[k].meterAsig(asignarAsig);
+			alumnos[k].meterNotas(notas);
+		}
+
+	}
+}
