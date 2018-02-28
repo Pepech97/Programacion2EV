@@ -1,0 +1,66 @@
+package dojo22;
+
+import Leer;
+
+public class Alumno {
+	private Asignatura asignaturas[];
+	private Integer notas[];
+	private String nombre;
+	private Integer edad;
+	private Fecha fechaNacimiento;
+
+	public Alumno( String nombre, Integer dia, Integer mes, Integer anio) {
+		this.nombre = nombre;
+		this.fechaNacimiento=new Fecha(dia,mes,anio);
+		calcularEdad();
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Fecha getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(Fecha fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+		calcularEdad();
+	}
+	public void meterAsig(Asignatura asignaturas[]){
+		this.asignaturas=asignaturas;
+	}
+	public void meterNotas(Integer notas[]){
+		this.notas=notas;
+	}
+	public Integer getNotas(Integer posicion){
+		return notas[posicion];
+	}
+	public Double media(){
+		Double media=0.0;
+		for (int i = 0; i < notas.length; i++) {
+			media=media+notas[i];
+		}
+		media=(Double)media/notas.length;
+		return media;
+	}
+	public String calificacion(){
+		if (media()>=6) {
+			return "Aprobado";
+		}else{
+		return "Suspendido";
+		}
+	}
+	private void calcularEdad(){
+		Fecha hoy= new Fecha(27,2,2018);
+		this.edad=fechaNacimiento.difFechas(hoy)/365;
+	}
+	public void visualizarTodo(){
+		Leer.mostrarEnPantalla("Almuno: "+nombre+"\nEdad: "+edad);
+		for (int i = 0; i < asignaturas.length; i++) {
+			Leer.mostrarEnPantalla("Asignatura: "+asignaturas[i].getNombre()+"  Nota: "+notas[i]);
+		}
+		Leer.mostrarEnPantalla(media()+"\n"+calificacion()+"\n");
+	}
+}
+

@@ -17,6 +17,7 @@ public class GestionLibroAutor {
 		Double precio;
 		int cantidadlibro;
 		boolean autorExiste=false;
+		Autor autoresLibro[]= new Autor [10];
 		int cuantosLibros=Leer.pedirEntero("¿Cuantos libros quieres crear?");
 		for (int i = 0; i < cuantosLibros; i++) {
 			titulo=Leer.pedirCadena("Titulo del libro: ");
@@ -30,36 +31,42 @@ public class GestionLibroAutor {
 			nombre=Leer.pedirCadena("Nombre del autor: ");
 			indAutor = buscarAutor(autores, nombre);
 			if (autores[indAutor] == null) {
-				
+
 				// creamos el autor y lo guardamos en el vector
 				email = Leer.pedirCadena("Email autor?");
 				do {
 					genero = Leer.pedirCadena("Genero autor: (m)asculino (f)emenino ?");
 				} while (genero.length() > 1 || (!genero.equalsIgnoreCase("m") && !genero.equalsIgnoreCase("f")));
 				letragenero = genero.charAt(0);
-				autor = new Autor(nombre, letragenero, email);
-				autores[indAutor] = autor;
-				libros[Libro.getSiguiente()] = new Libro(titulo, autor, precio, cantidadlibro);
+				autores[indAutor] = new Autor(nombre, letragenero, email);
+				for (int j = 0; j < autoresLibro.length; j++) {
+					autoresLibro[j]=autores[j];
+				}
+				for (int j = 0; j < autoresLibro.length&&autoresLibro[j]!=null; j++) {
+					Leer.mostrarEnPantalla(autoresLibro[j]+"");//tengo q llamar al metodo get 
+				}
+				libros[Libro.getSiguiente()] = new Libro(titulo, autores[indAutor], precio, cantidadlibro);
 
 			} else {// al atributo autor del libro le daremos el que hemos encontrado
 				autor=autores[indAutor];
 				libros[Libro.getSiguiente()] = new Libro(titulo,autor, precio, cantidadlibro);
 			}
-			//for (int j = 0; j < autores.length; j++) {
-				//if(autores[j].getNombre().equals(nombre)){
-					//libros[Libro.getSiguiente()]=new Libro(titulo,autores[j],precio,cantidadlibro);
-					//autorExiste=true;
-				//}
-			//}
-			//if(autorExiste==false){
-				//email=Leer.pedirCadena("Email: ");
-				//do {
-					//genero=Leer.pedirCadena("Genero: ");
-				//} while (!genero.equals("m") && !genero.equals("f"));
-				//autores[Autor.getSiguiente()]=new Autor(nombre,genero,email);
-			}
 		}
-	
+		/*for (int j = 0; j < autores.length; j++) {
+				if(autores[j]!=null && autores[j].getNombre().equals(nombre)){
+					libros[Libro.getSiguiente()]=new Libro(titulo,autores[j],precio,cantidadlibro);
+					autorExiste=true;
+				}
+			}
+			if(autorExiste==false){
+				email=Leer.pedirCadena("Email: ");
+				do {
+					genero=Leer.pedirCadena("Genero: ");
+				} while (!genero.equals("m") && !genero.equals("f"));
+				autores[Autor.getSiguiente()]=new Autor(nombre,genero,email);
+			}*/
+	}
+
 	public static Integer buscarTitulo(Libro[] libros, String titulo) {
 		int i = 0, indiceLibro = -1;
 		// devuelve el indice del elemento donde está ese título

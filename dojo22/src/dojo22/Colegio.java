@@ -1,6 +1,6 @@
 package dojo22;
 
-import Leer;
+
 
 public class Colegio {
 

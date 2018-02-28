@@ -1,0 +1,94 @@
+
+public class GestionLibroAutor {
+
+	public static void main(String[] args) {
+		Libro libros[]=new Libro[10];
+		Autor autores[]=new Autor[10];
+		crearLibro(libros,autores);
+		for (int i = 0; i < libros.length && libros[i]!=null; i++) {
+			Leer.mostrarEnPantalla(libros[i].visualizarLibro());
+		}
+	}
+	public static void crearLibro(Libro libros[], Autor autores[]){
+		Autor autor;
+		int indLibro, indAutor, indTitulo;
+		String titulo, email, nombre,genero;
+		char letragenero;
+		Double precio;
+		int cantidadlibro;
+		boolean autorExiste=false;
+		int cuantosLibros=Leer.pedirEntero("¿Cuantos libros quieres crear?");
+		for (int i = 0; i < cuantosLibros; i++) {
+			titulo=Leer.pedirCadena("Titulo del libro: ");
+			indTitulo = buscarTitulo(libros, titulo);
+			while (indTitulo != -1) {
+				titulo = Leer.pedirCadena("El libro ya existe y no se puede repetir. Titulo del libro?");
+				indTitulo = buscarTitulo(libros, titulo);
+			}
+			precio=Leer.pedirDouble("Precio del libro: ");
+			cantidadlibro=Leer.pedirEntero("Cantidad de libros: ");
+			nombre=Leer.pedirCadena("Nombre del autor: ");
+			indAutor = buscarAutor(autores, nombre);
+			if (autores[indAutor] == null) {
+
+				// creamos el autor y lo guardamos en el vector
+				email = Leer.pedirCadena("Email autor?");
+				do {
+					genero = Leer.pedirCadena("Genero autor: (m)asculino (f)emenino ?");
+				} while (genero.length() > 1 || (!genero.equalsIgnoreCase("m") && !genero.equalsIgnoreCase("f")));
+				letragenero = genero.charAt(0);
+				autor = new Autor(nombre, letragenero, email);
+				autores[indAutor] = autor;
+				libros[Libro.getSiguiente()] = new Libro(titulo, autores[indAutor], precio, cantidadlibro);
+
+			} else {// al atributo autor del libro le daremos el que hemos encontrado
+				autor=autores[indAutor];
+				libros[Libro.getSiguiente()] = new Libro(titulo,autor, precio, cantidadlibro);
+			}
+		}
+		/*for (int j = 0; j < autores.length; j++) {
+				if(autores[j]!=null && autores[j].getNombre().equals(nombre)){
+					libros[Libro.getSiguiente()]=new Libro(titulo,autores[j],precio,cantidadlibro);
+					autorExiste=true;
+				}
+			}
+			if(autorExiste==false){
+				email=Leer.pedirCadena("Email: ");
+				do {
+					genero=Leer.pedirCadena("Genero: ");
+				} while (!genero.equals("m") && !genero.equals("f"));
+				autores[Autor.getSiguiente()]=new Autor(nombre,genero,email);
+			}*/
+	}
+
+	public static Integer buscarTitulo(Libro[] libros, String titulo) {
+		int i = 0, indiceLibro = -1;
+		// devuelve el indice del elemento donde está ese título
+		// o el valor -1 si no lo encuentra
+		while (i < libros.length && libros[i] != null) {
+			if (libros[i].getTitulo().equals(titulo)) {
+				indiceLibro = i;
+			}
+			i++;
+		}
+		return indiceLibro;
+	}
+
+	public static int buscarAutor(Autor[] autores, String nombre) {
+		// devuelve la posicion del nombre o la del primer elemento libre del vector de autores
+		int i = 0, indiceAutor=0;
+		Boolean encontrado = false;
+		while (i < autores.length && autores[i] != null && !encontrado) {
+			if (autores[i].getNombre().equals(nombre)) {
+				indiceAutor = i;
+				encontrado = true;
+			}
+			i++;
+		}
+		if(!encontrado){
+			indiceAutor = i;
+		}
+		return indiceAutor;
+	}
+
+}
