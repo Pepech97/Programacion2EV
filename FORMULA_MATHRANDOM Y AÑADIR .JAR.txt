@@ -1,0 +1,22 @@
+(int)(Math.random() * (max - min) + min)
+
+EL MAX SIN INCLUIR!!!
+EJ:
+
+(int)(Math.random() * (5 - 1) + 1)
+
+del 4 al 1
+
+
+Para añadir un jar externo a nuestro proyecto con Eclipse seguimos los siguientes pasos
+
+    Con el botón derecho del ratón sacamos el menú sobre el proyecto y elegimos "propiedades"
+    En la ventana que se abre, en el arbolito de la izquierda elegimos "java build path".
+    En el lado derecho de la ventana, elegimos la pestaña "Libraries"
+    Le damos al botón "add external jar"
+    Buscamos el jar que queremos añadir y lo seleccionamos.
+    Aceptar, aceptar, aceptar
+
+y listo, ese jar ya forma parte de nuestro proyecto Eclipse y podemos usarlo en nuestro programa.
+
+Puedes ver una presentación en PowerPoint con estos pasos en Añadir un jar externo a nuestro proyecto eclipse 
